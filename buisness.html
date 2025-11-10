@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Product Card</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      /* background: radial-gradient(circle at top left, #000000, #3d3849); */
+      background-image: url("edit_headset.jpg");
+      background-size: cover; 
+      font-family: "Poppins", sans-serif;
+    }
+
+    .card {
+      width: 320px;
+      height: 450px;
+      perspective: 1200px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+      border-radius: 20px;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg) scale(1.05);
+      box-shadow: 0 0 25px rgba(255, 0, 150, 0.7),
+                  0 0 50px rgba(0, 200, 255, 0.5);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    /* Front */
+    .card-front {
+      background: rgb(25, 0, 113);
+      backdrop-filter: blur(10px);
+      border: 5px solid rgba(23, 0, 124, 0.5);
+      box-shadow: 0 0 25px rgba(23, 0, 124, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .card-front img {
+      width: 80%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover .card-front img {
+      transform: scale(1.1);
+    }
+
+    .card-front h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .card-front p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Back */
+    .card-back {
+      background: linear-gradient(135deg, #ff0099, #493240),
+                  url("blurred_headphones.jpg") no-repeat center/cover;
+      background-size: cover;
+      background-blend-mode:overlay;
+      filter: blur(0px);
+      color: #fff;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-back h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 50px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: rgb(184, 184, 255);
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #ff0099;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff0099;
+      color: #fff;
+      box-shadow: 0 0 15px #fff, 0 0 25px #ff0099;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-inner">
+      <!-- Front Side -->
+      <div class="card-front">
+        <img src="https://imgs.search.brave.com/oI0Trcx48K42sDa4SVFaMe2_uqwaLryT1moBAuHu7rY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzE0LzcwLzcwLzcx/LzM2MF9GXzE0NzA3/MDcxNTJfNzJ4VHBr/U2dHQ0ZXak80YWZ4/bzJERXpFanFuOWNw/OE8uanBn" alt="Product">
+        <h3>Gaming Headset</h3>
+        <div style="display: inline-block; padding: 10px; border: 2px solid #1aa4f9; border-radius: 5px; background-color: rgba(255, 0, 153, 0.1);">
+          <p style="font-family: 'Cursive', cursive; font-weight: bold; text-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 7px #ff0099;">
+            <span class="glow">Gaming Headset</span><br>
+            <span class="glow">Price: Rs. 3999</span><br>
+            <span class="glow">In stock: 12</span><br>
+            <br>
+            <span class="glow">Rating: &#9733;&#9733;&#9733;&#9733;&#9734;</span><br>
+            <span class="glow">Reviews: 15</span><br>
+            <span class="glow">Offers: <span class="offer">20% OFF</span></span><br>
+            <span class="glow">Gaming Headset with high quality audio and stylish design.</span><br>
+            <br>
+            
+          </p>
+        </div>
+        
+        <style>
+          .glow {
+            animation: glowing 4s infinite;
+          }
+          
+          @keyframes glowing {
+            0% { text-shadow: 0 0 3px #000000, 0 0 5px #fff, 0 0 7px #3187ff; }
+            50% { text-shadow: 0 0 10px #000000, 0 0 20px #1e69ff; }
+            100% { text-shadow: 0 0 3px #000000, 0 0 5px #fff, 0 0 7px #318dff; }
+          }
+        </style>
+      </div>
+
+      <!-- Back Side -->
+      <div class="card-back">
+        <h1 style="color: #ffffff;" class="glow">Gaming Headset</h1>
+        <div style="display: inline-block; padding: 20px; border: 0px solid #ee1af9; border-radius: 0px; background-color: rgba(255, 0, 153, 0.1);">
+          
+            <span style="background-color: rgb(255, 255, 255); padding: 15px;"><b><span style="color: red;">Rs.3999</span></b></span>
+          </p>
+        </div>
+        <div class="price" "> 
+        <button class="btn" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addToCart() {
+      alert("🎧Congratss... Gaming Headset added to your cart!");
+    }
+  </script>
+
+</body>
+</html>
